@@ -1,4 +1,5 @@
 #pragma once
+#include <compare>
 
 template<typename T>
 class Vec2_
@@ -61,14 +62,7 @@ public:
 	{
 		return *this = *this / rhs;
 	}
-	bool operator==( const Vec2_& rhs ) const
-	{
-		return x == rhs.x && y == rhs.y;
-	}
-	bool operator!=( const Vec2_& rhs ) const
-	{
-		return !( *this == rhs );
-	}
+	auto operator<=>( const Vec2_& other ) const = default;
 	T getLength() const
 	{
 		return std::sqrt( getLengthSq() );

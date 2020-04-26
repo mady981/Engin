@@ -20,6 +20,8 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <map>
+#include "Vec2.h"
 
 Game::Game( MainWindow& wnd )
 	:

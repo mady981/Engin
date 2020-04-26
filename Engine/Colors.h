@@ -19,6 +19,7 @@
 *	along with The Chili DirectX Framework.  If not, see <http://www.gnu.org/licenses/>.  *
 ******************************************************************************************/
 #pragma once
+#include <compare>
 
 class Color
 {
@@ -51,14 +52,7 @@ public:
 		dword = color.dword;
 		return *this;
 	}
-	bool operator==( const Color& rhs )
-	{
-		return dword == rhs.dword;
-	}
-	bool operator!=( const Color& rhs )
-	{
-		return !( dword == rhs.dword );
-	}
+	auto operator<=>( const Color& ) const = default;
 	constexpr unsigned char GetX() const
 	{
 		return dword >> 24u;

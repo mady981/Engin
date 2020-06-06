@@ -61,26 +61,50 @@ public:
 	}
 	void PutPixel( int x,int y,Color c );
 	Color getPixel( int x,int y );
-
-	void DrawSpriteNoChroma( int x,int y,const Surface& s )
+	template<typename E>
+	void DrawSprite( int x,int y,const Surface& s,E effect )
 	{
-		DrawSpriteNoChroma( x,y,{ 0,s.getWidht(),0,s.getHeight() },s );
-	};
-	void DrawSpriteNoChroma( int x,int y,RecI srcRect,const Surface& s )
-	{
-		DrawSpriteNoChroma( x,y,srcRect,Screen,s );
-	};
-	void DrawSpriteNoChroma( int x,int y,RecI srcRect,const RecI& clip,const Surface& s );
-
-	void DrawSprite( int x,int y,const Surface& s,Color chroma = Colors::Magenta )
-	{
-		DrawSprite( x,y,{ 0,s.getWidht(),0,s.getHeight() },s,chroma );
+		DrawSprite( x,y,{ 0,s.getWidht(),0,s.getHeight() },s,effect );
 	}
-	void DrawSprite( int x,int y,RecI srcRect,const Surface& s,Color chroma = Colors::Magenta )
+	template<typename E>
+	void DrawSprite( int x,int y,RecI srcRect,const Surface& s,E effect )
 	{
-		DrawSprite( x,y,srcRect,Screen,s,chroma );
+		DrawSprite( x,y,srcRect,Screen,s,effect );
 	}
-	void DrawSprite( int x,int y,RecI srcRect,const RecI& clip,const Surface& s,Color chroma = Colors::Magenta );
+	template<typename E>
+	void DrawSprite( int x,int y,RecI srcRect,const RecI& clip,const Surface& s,E effect )
+	{
+		if ( x < clip.left )
+		{
+			srcRect.left += clip.left - x;
+			x = clip.left;
+		}
+		else if ( x + srcRect.getWidth() >= clip.right )
+		{
+			srcRect.right -= x + srcRect.getWidth() - clip.right;
+		}
+		if ( y < clip.top )
+		{
+			srcRect.top -= y - clip.top;
+			y = clip.top;
+		}
+		else if ( y + srcRect.getHeight() >= clip.bottem )
+		{
+			srcRect.bottem -= y + srcRect.getHeight() - clip.bottem;
+		}
+		for ( int sy = srcRect.top; sy < srcRect.bottem; ++sy )
+		{
+			for ( int sx = srcRect.left; sx < srcRect.right; ++sx )
+			{
+				effect(
+					s.GetPixel( sx,sy ),
+					x + sx - srcRect.left,
+					y + sy - srcRect.top,
+					*this
+				);
+			}
+		}
+	}
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
@@ -101,3 +125,14 @@ public:
 	static constexpr int ScreenHeight = 600;
 	Rec_<int> Screen = { 0,ScreenWidth,0,ScreenHeight };
 };
+
+#include "SpriteEffect.h"
+
+#ifndef GOD_GRAPHICS
+extern template
+void Graphics::DrawSprite<SpriteEffect::Copy>( int x,int y,RecI srcRect,const RecI& clip,const Surface& s,SpriteEffect::Copy effect );
+extern template
+void Graphics::DrawSprite<SpriteEffect::Chroma>( int x,int y,RecI srcRect,const RecI& clip,const Surface& s,SpriteEffect::Chroma effect );
+extern template
+void Graphics::DrawSprite<SpriteEffect::Substitution>( int x,int y,RecI srcRect,const RecI& clip,const Surface& s,SpriteEffect::Substitution effect );
+#endif

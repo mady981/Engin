@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include "SpriteEffect.h"
 
 Game::Game( MainWindow& wnd )
 	:
@@ -38,6 +39,16 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+    gfx.DrawSprite( 100,100,*pSurf,SpriteEffect::Chroma() );
+    //for ( int y = 0; y < 16; ++y )
+    //{
+    //    for ( int x = 0; x < 16; ++x )
+    //    {
+    //        gfx.PutPixel( x + 100,y + 120,Colors::White );
+    //    }
+    //}
+    gfx.DrawSprite( 100,120,*pSurf,SpriteEffect::Alpha( 0.25f ) );
+    gfx.DrawSprite( 100,140,*pSurf,SpriteEffect::Substitution( Colors::Red ) );
 }
 
 void Game::ComposeFrame()

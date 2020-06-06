@@ -24,6 +24,15 @@ public:
 		Rec_( topleft,topleft + Vec2f( width,height ) )
 	{
 	}
+	template<typename I>
+	Rec_( const Rec_<I>& rhs )
+		:
+		left( (T)left ),
+		right( (T)right ),
+		top( (T)top ),
+		bottem( (T)bottem )
+	{
+	}
 	bool isOverlappingWith( const Rec_& other ) const
 	{
 		return right > other.left && left < other.right

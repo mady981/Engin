@@ -22,6 +22,9 @@
     <Filter Include="Framework\Additions">
       <UniqueIdentifier>{64ea34c0-e070-46d7-92e2-14c0f9320cf9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{6b5e6ca3-24e6-4509-82ea-3438bfeaaea0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ChiliWin.h">
@@ -31,9 +34,6 @@
       <Filter>Framework\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DXErr.h">
-      <Filter>Framework\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
       <Filter>Framework\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
@@ -78,12 +78,18 @@
     <ClInclude Include="Surface.h">
       <Filter>Framework\Additions</Filter>
     </ClInclude>
+    <ClInclude Include="SurfaceCodex.h">
+      <Filter>Framework\Additions</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteEffect.h">
+      <Filter>Framework\Additions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
-      <Filter>Framework\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Framework\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
@@ -107,14 +113,17 @@
     <ClCompile Include="COMInitializer.cpp">
       <Filter>Framework\Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FrameTimer.cpp">
-      <Filter>Framework\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>Framework\Additions</Filter>
-    </ClCompile>
     <ClCompile Include="Surface.cpp">
       <Filter>Framework\Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="SufaceOD.cpp">
+      <Filter>Framework\Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsOD.cpp">
+      <Filter>Framework\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

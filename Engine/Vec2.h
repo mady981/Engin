@@ -12,22 +12,11 @@ public:
 		y( y_in )
 	{
 	}
-	Vec2_( const Vec2_<float>& src )
+	template<typename I>
+	Vec2_( const Vec2_<I>& src )
 		:
-		x( ( T )src.x ),
-		y( ( T )src.y )
-	{
-	}
-	Vec2_( const Vec2_<int>& src )
-		:
-		x( ( T )src.x ),
-		y( ( T )src.y )
-	{
-	}
-	Vec2_( const std::pair<T,T>& src )
-		:
-		x( src.first ),
-		y( src.second )
+		x( (T)src.x ),
+		y( (T)src.y )
 	{
 	}
 	Vec2_ operator+( const Vec2_& rhs ) const
@@ -78,9 +67,9 @@ public:
 	Vec2_ getNomalize() const
 	{
 		const T len = getLengthSq();
-		if ( len != ( T )0 )
+		if ( len != (T)0 )
 		{
-			return *this * ( ( T )1 / len );
+			return *this * ( (T)1 / len );
 		}
 		return *this;
 	}

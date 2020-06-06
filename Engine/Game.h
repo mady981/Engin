@@ -23,6 +23,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "SurfaceCodex.h"
 
 class Game
 {
@@ -36,5 +37,6 @@ private:
 	void UpdateModel();
 private:
 	MainWindow& wnd;
-	Graphics gfx;
+    Graphics gfx;
+    const Surface* pSurf = SurfaceCodex::Retrive( L"GrassTile.bmp" );
 };

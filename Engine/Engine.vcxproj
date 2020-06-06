@@ -153,23 +153,44 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundEffect.h" />
+    <ClInclude Include="SpriteEffect.h" />
     <ClInclude Include="Surface.h" />
+    <ClInclude Include="SurfaceCodex.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="COMInitializer.cpp" />
     <ClCompile Include="DXErr.cpp" />
-    <ClCompile Include="FrameTimer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="GraphicsOD.cpp">
+      <BufferSecurityCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</BufferSecurityCheck>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Full</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Full</Optimization>
+      <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</IntrinsicFunctions>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</WholeProgramOptimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</BasicRuntimeChecks>
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</SDLCheck>
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</SDLCheck>
+    </ClCompile>
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="SufaceOD.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Full</Optimization>
+      <BufferSecurityCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</BufferSecurityCheck>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Full</Optimization>
+      <BufferSecurityCheck Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</BufferSecurityCheck>
+      <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</IntrinsicFunctions>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</WholeProgramOptimization>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Default</BasicRuntimeChecks>
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</SDLCheck>
+      <SDLCheck Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</SDLCheck>
+    </ClCompile>
     <ClCompile Include="Surface.cpp" />
-    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">

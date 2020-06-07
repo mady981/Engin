@@ -24,6 +24,10 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "SurfaceCodex.h"
+#include "FrameTimer.h"
+#include <random>
+#include <vector>
+#include "Vec2.h"
 
 class Game
 {
@@ -38,5 +42,6 @@ private:
 private:
 	MainWindow& wnd;
     Graphics gfx;
-    const Surface* pSurf = SurfaceCodex::Retrive( L"GrassTile.bmp" );
+    FrameTimer ft;
+    const Surface* pSurf = SurfaceCodex::Retrive( L"Link90x90.bmp" );
 };

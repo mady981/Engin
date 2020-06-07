@@ -22,7 +22,6 @@
 #include "Graphics.h"
 #include "DXErr.h"
 #include "ChiliException.h"
-#include <assert.h>
 #include <string>
 #include <array>
 

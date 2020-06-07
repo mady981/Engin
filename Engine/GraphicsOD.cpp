@@ -1,6 +1,5 @@
 #define GOD_GRAPHICS
 #include "Graphics.h"
-#include <cassert>
 
 void Graphics::BeginFrame()
 {
@@ -28,7 +27,7 @@ Color Graphics::getPixel( int x,int y )
 
 void dummy( Graphics& gfx )
 {
-	gfx.DrawSprite( 0,0,RecI{ 0,0,0,0 },RecI{ 0,0,0,0 },Surface{},SpriteEffect::Copy{} );
 	gfx.DrawSprite( 0,0,RecI{ 0,0,0,0 },RecI{ 0,0,0,0 },Surface{},SpriteEffect::Chroma{ Colors::Black } );
+	gfx.DrawSprite( 0,0,RecI{ 0,0,0,0 },RecI{ 0,0,0,0 },Surface{},SpriteEffect::Copy{} );
 	gfx.DrawSprite( 0,0,RecI{ 0,0,0,0 },RecI{ 0,0,0,0 },Surface{},SpriteEffect::Substitution{ Colors::Black,Colors::Black } );
 }

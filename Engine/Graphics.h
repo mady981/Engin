@@ -27,6 +27,7 @@
 #include "Vec2.h"
 #include "Rec.h"
 #include "Surface.h"
+#include <cassert>
 
 class Graphics
 {

@@ -5,6 +5,7 @@
 #include "Surface.h"
 #include <string>
 #include <sstream>
+#include "SpriteEffect.h"
 
 class Text
 {
@@ -22,7 +23,7 @@ public:
 		int currletter = 0;
 		for ( auto c : text )
 		{
-			gfx.DrawSprite( pos.x + currletter * CharWidth,pos.y,CharMaping( c ),font,chroma );
+			gfx.DrawSprite( pos.x + currletter * CharWidth,pos.y,CharMaping( c ),font,SpriteEffect::Chroma( chroma ) );
 			++currletter;
 		}
 	}

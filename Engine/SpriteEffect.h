@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Colors.h"
 #include "Graphics.h"
 
 namespace SpriteEffect
@@ -9,7 +10,15 @@ namespace SpriteEffect
 	public:
 		void operator()( Color cSrc,int xDest,int yDest,Graphics& gfx ) const
 		{
-			gfx.PutPixel( xDest,yDest,cSrc );
+			//dont know what the fuck is wrong with this shit but it works now
+			if ( cSrc != Colors::Black )
+			{
+				gfx.PutPixel( xDest,yDest,cSrc );
+			}
+			else
+			{
+				gfx.PutPixel( xDest,yDest,cSrc );
+			}
 		}
 	};
 

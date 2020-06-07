@@ -23,11 +23,6 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-#include "SurfaceCodex.h"
-#include "FrameTimer.h"
-#include <random>
-#include <vector>
-#include "Vec2.h"
 
 class Game
 {
@@ -42,6 +37,4 @@ private:
 private:
 	MainWindow& wnd;
     Graphics gfx;
-    FrameTimer ft;
-    const Surface* pSurf = SurfaceCodex::Retrive( L"Link90x90.bmp" );
 };

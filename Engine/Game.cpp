@@ -20,21 +20,12 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-#include "SpriteEffect.h"
-#include <sstream>
 
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd )
 {
-    //std::mt19937 rng( 69 );
-    //std::uniform_int_distribution<int> xd( 0,400 );
-    //std::uniform_int_distribution<int> yd( 0,300 );
-    //for ( int i = 0; i < 50; ++i )
-    //{
-    //    postitions.push_back( Vec2i{ xd( rng ),yd( rng ) } );
-    //}
 }
 
 void Game::Go()
@@ -47,10 +38,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-    ft.Mark();
 }
 
 void Game::ComposeFrame()
 {
-    gfx.DrawSprite( 100,100,*pSurf,SpriteEffect::Copy() );
 }
